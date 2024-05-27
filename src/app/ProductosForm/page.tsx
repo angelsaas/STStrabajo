@@ -27,9 +27,11 @@ const Add = () => {
 
         console.log(newProducto)
         
-        addFetcher('/api/producto', newProducto).then((data) => {
-                //router.push('/Productos')
+        addFetcher('/api/producto', newProducto)
+        .then((data) => {
+            //router.push('/Productos')
         }).catch((e) => {
+
         })
 
     }
