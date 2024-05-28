@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { productodto } from "./producto.dto";
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 export async function GET() {
-    return NextResponse.json(productos)
+    const productosprisma = await prisma.productos.findMany()
+    return NextResponse.json(productosprisma)
 }
 
 export async function POST(req: NextRequest){
