@@ -1,0 +1,52 @@
+/* styles.module.css */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Asegura que el contenido esté centrado verticalmente */
+  background-color: #f8f9fa; /* Fondo suave */
+}
+
+.h4 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0818f7;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.formControl {
+  display: block; /* Coloca cada campo en su propia línea */
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #74b0ed;
+  border-radius: 0.25rem;
+  box-sizing: border-box; /* Evita que el padding aumente el tamaño total del elemento */
+}
+
+.formControl:focus {
+  outline: none; /* Elimina el contorno azul predeterminado al enfocar */
+  border-color: #4285f4; /* Cambia el color del borde al enfocar (azul de Google) */
+  box-shadow: 0 0 0 0.2rem rgba(204, 110, 241, 0.25); /* Agrega una sombra sutil al enfocar */
+}
+
+.text-danger {
+  color: #dc3545; /* Rojo para mensajes de error */
+  font-size: 0.9rem;
+}
+
+.btnPrimary {
+  background-color: #4285f4; /* Azul de Google */
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btnPrimary:hover {
+  background-color: #3367d6; /* Azul más oscuro al pasar el mouse */
+}

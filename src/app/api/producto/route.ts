@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { productodto } from "./producto.dto";
 import { PrismaClient } from '@prisma/client'
+import { productoFormDto } from "./producto.dto";
 
 const prisma = new PrismaClient()
 
@@ -10,15 +11,31 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest){
-    const data:productodto = await req.json()
-    productos = [...productos, data]
+    const data = await req.json();
+
+
+    const productosprisma = await prisma.productos.create({
+        data: {
+            Nombre: data.Nombre,
+            Descripcion: data.descripcion,
+            Costo: data.Costo
+        },
+    });
     return NextResponse.json({message: "Producto agregado correctamente", succedded: true})
 }
 
 export async function PUT(req: NextRequest){
     const data:productodto = await req.json()
-    let indexProduct = productos.findIndex(x => x.Id == data.Id)
-    productos[indexProduct] = data
+    const responseUpdate = await prisma.productos.update({
+        where: {
+            Id: data.Id
+        },
+        data:{
+            Nombre: data.Nombre,
+            Descripcion: data.Descripcion,
+            Costo: data.Costo
+        }
+        })
     return NextResponse.json({message: "Producto actualizado correctamente", succedded: true})
 
 }
@@ -26,8 +43,20 @@ export async function PUT(req: NextRequest){
 export async function DELETE(req: NextRequest){
     let searchParams = req.nextUrl.searchParams
     const id = parseInt( searchParams.get('id') ?? "0")
-    let indexProduct = productos.findIndex(x => x.Id == id)
-    productos.splice(indexProduct,1)
+    if (isNaN(id) || id === 0) {
+        return NextResponse.json({
+            message: "ID inválido",
+            succedded: false,
+        });
+    }
+
+    // Eliminar el producto de la base de datos
+    const deletedProducto = await prisma.productos.delete({
+        where: {
+            Id: id,
+        },
+    });
+
     return NextResponse.json({message: "Producto eliminado correctamente", succedded: true})
 }
 
