@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { number, object, string } from 'yup';
 import { productoFormDto, productodto } from "../api/producto/producto.dto";
 import { PrismaClient } from '@prisma/client'
-
+import styles from './styles.module.css'
 
 const prisma = new PrismaClient()
 const addFetcher = async (url: string, data: productoFormDto) => fetch(url, { method: "POST", body: JSON.stringify(data) }).then(r => r.json())
@@ -97,4 +97,3 @@ const addTicketSchema = object({
 })
 
 
-import styles from './styles.module.css';

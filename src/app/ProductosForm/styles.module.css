@@ -1,52 +1,56 @@
-/* styles.module.css */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Asegura que el contenido esté centrado verticalmente */
-  background-color: #f8f9fa; /* Fondo suave */
+.productosContainer {
+  background-color: #ffffff;   /* White background like a toilet */
+  border: 3px solid #222222;   /* Thick black border */
+  border-radius: 10px;         /* Rounded corners */
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;            /* More padding */
+  box-shadow: 5px 5px 10px #888888;  /* Subtle shadow */
 }
 
-.h4 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #0818f7;
-  margin-bottom: 1.5rem;
+.header {
+  font-size: 3.5rem;         /* Bigger, bolder header */
+  font-family: 'Impact', sans-serif; /* Impact font */
   text-align: center;
+  margin-bottom: 1.5rem;
+  color: #000000;          /* Black text */
+  text-shadow: 
+    -1px -1px 0 #ffffff,
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;     /* White outline on text */
 }
 
-.formControl {
-  display: block; /* Coloca cada campo en su propia línea */
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  border: 1px solid #74b0ed;
-  border-radius: 0.25rem;
-  box-sizing: border-box; /* Evita que el padding aumente el tamaño total del elemento */
+.productosContainer p {
+  background-color: #007bff; /* Blue background like water */
+  color: #ffffff;
+  padding: 1.2rem; 
+  margin-bottom: 1.2rem;
+  border: 2px solid #222222;
+  border-radius: 5px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease; /* Add back a subtle transition */
 }
 
-.formControl:focus {
-  outline: none; /* Elimina el contorno azul predeterminado al enfocar */
-  border-color: #4285f4; /* Cambia el color del borde al enfocar (azul de Google) */
-  box-shadow: 0 0 0 0.2rem rgba(204, 110, 241, 0.25); /* Agrega una sombra sutil al enfocar */
+.productosContainer p:hover {
+  transform: translateY(-3px);   /* Slight hover effect */
 }
 
-.text-danger {
-  color: #dc3545; /* Rojo para mensajes de error */
-  font-size: 0.9rem;
+.productosContainer p span {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
-.btnPrimary {
-  background-color: #4285f4; /* Azul de Google */
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 0.25rem;
-  font-size: 1rem;
+.productosContainer i {
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Transición suave */
+  font-size: 1.5rem;
+  margin-left: 0.7rem;
+  color: #ffffff;
+  text-shadow: none;  
 }
 
-.btnPrimary:hover {
-  background-color: #3367d6; /* Azul más oscuro al pasar el mouse */
+.productosContainer i:hover {
+  color: #ffcc00;   /* Yellow on hover */
 }
